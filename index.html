@@ -1,12 +1,507 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="ko" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name ="viewport" content="width=device=width, initial-scale = 1.0">
-    <title>Docement</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>방서희 | Cute Interactive Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        pastel: {
+                            pink: '#FFD1DC',
+                            purple: '#E0BBE4',
+                            blue: '#B5EAD7',
+                            amber: '#FFDAC1',
+                            accent: '#8B5CF6'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans KR', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.85);
+        }
+
+        /* Cute bounce and float animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(1deg); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-subtle {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+        .animate-pulse-subtle {
+            animation: pulse-subtle 3s ease-in-out infinite;
+        }
+
+        /* Custom tab active bar transition */
+        .tab-btn.active {
+            color: #8B5CF6;
+            font-weight: 700;
+            border-bottom: 3px solid #8B5CF6;
+        }
+        .dark .tab-btn.active {
+            color: #C4B5FD;
+            border-bottom-color: #C4B5FD;
+        }
+    </style>
 </head>
-<body>
-    <h1>Hello, World!</h1>
-    <h1>안녕하세요 ~~</h1>
+<body class="bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-50 dark:from-slate-950 dark:via-slate-900 dark:to-indigo-950 text-slate-800 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col justify-between selection:bg-purple-200 dark:selection:bg-purple-900">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 backdrop-blur-xl bg-white/70 dark:bg-slate-900/70 border-b border-purple-100/60 dark:border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3.5 flex justify-between items-center">
+            <!-- Requirement element: h1 -->
+            <h1 class="text-xl font-extrabold bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-500 bg-clip-text text-transparent flex items-center gap-2">
+                <span>✨ Seohee's Profile</span>
+            </h1>
+            <div class="flex items-center gap-3">
+                <!-- Requirement element: a -->
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" 
+                   title="GitHub Profile"
+                   class="p-2 rounded-xl bg-purple-50 dark:bg-slate-800 text-purple-600 dark:text-purple-300 hover:bg-purple-100 dark:hover:bg-slate-700 transition-all flex items-center gap-1.5 text-sm font-semibold">
+                    <i class="fa-brands fa-github text-lg"></i>
+                    <span class="hidden sm:inline">GitHub</span>
+                </a>
+                <!-- Dark Mode Toggle Button -->
+                <button id="theme-toggle" class="p-2.5 rounded-xl bg-purple-50 dark:bg-slate-800 text-amber-500 dark:text-purple-300 hover:bg-purple-100 dark:hover:bg-slate-700 transition-all">
+                    <i id="theme-toggle-dark-icon" class="fa-solid fa-moon text-lg hidden"></i>
+                    <i id="theme-toggle-light-icon" class="fa-solid fa-sun text-lg hidden"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <!-- Requirement element: div -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-8 flex-grow w-full">
+        
+        <!-- Hero Banner & Cute Character Profile Header -->
+        <div class="glass-card rounded-3xl shadow-xl shadow-purple-500/5 dark:shadow-none border border-white/80 dark:border-slate-700/60 overflow-hidden mb-8 transition-all relative">
+            
+            <!-- Dynamic Gradient Background Header -->
+            <div class="h-40 sm:h-52 bg-gradient-to-r from-purple-400 via-pink-300 to-indigo-400 relative overflow-hidden">
+                <div class="absolute inset-0 bg-white/10 backdrop-blur-[2px]"></div>
+                <!-- Cute Floating Decorative SVG Circles -->
+                <div class="absolute -top-10 -left-10 w-40 h-40 bg-white/20 rounded-full blur-xl animate-pulse-subtle"></div>
+                <div class="absolute top-10 right-10 w-32 h-32 bg-pink-200/30 rounded-full blur-lg animate-float"></div>
+            </div>
+            
+            <!-- User Profile Section -->
+            <div class="px-6 sm:px-8 pb-8 relative">
+                <div class="flex flex-col sm:flex-row items-center sm:items-end -mt-20 sm:-mt-24 mb-6 gap-6">
+                    
+                    <!-- Cute SVG Chibi Avatar Box (No bangs, medium brown hair) -->
+                    <!-- Requirement element: div, img -->
+                    <div class="relative group cursor-pointer" onclick="triggerSparkleAnimation()" title="클릭해보세요!">
+                        <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-3xl border-4 border-white dark:border-slate-800 shadow-lg bg-gradient-to-b from-amber-100 to-pink-100 dark:from-slate-800 dark:to-purple-950 flex items-center justify-center overflow-hidden animate-float">
+                            
+                            <!-- Embedded High-Quality Cute Chibi Character SVG -->
+                            <svg viewBox="0 0 200 200" class="w-full h-full object-cover">
+                                <!-- Background Circle -->
+                                <circle cx="100" cy="100" r="95" fill="#FFF0F5" />
+                                
+                                <!-- Back Hair (Medium length brown, wavy) -->
+                                <path d="M 45 90 C 35 120, 40 160, 60 175 C 70 160, 75 120, 70 90 Z" fill="#B36B39" />
+                                <path d="M 155 90 C 165 120, 160 160, 140 175 C 130 160, 125 120, 130 90 Z" fill="#B36B39" />
+
+                                <!-- Body / Cute Outfit -->
+                                <path d="M 60 180 Q 100 160 140 180 L 150 200 L 50 200 Z" fill="#8B5CF6" />
+                                <!-- Collar/Ribbon -->
+                                <path d="M 85 165 L 100 180 L 115 165 L 100 170 Z" fill="#FFD1DC" />
+
+                                <!-- Neck -->
+                                <rect x="90" y="135" width="20" height="20" rx="5" fill="#FFE0BD" />
+
+                                <!-- Head / Face -->
+                                <ellipse cx="100" cy="110" rx="42" ry="40" fill="#FFE0BD" />
+
+                                <!-- Cheeks (Blush) -->
+                                <ellipse cx="75" cy="118" rx="8" ry="5" fill="#FF9999" opacity="0.6" />
+                                <ellipse cx="125" cy="118" rx="8" ry="5" fill="#FF9999" opacity="0.6" />
+
+                                <!-- Eyes (Big Sparkly Anime Eyes) -->
+                                <ellipse cx="80" cy="110" rx="6.5" ry="9" fill="#331A00" />
+                                <ellipse cx="120" cy="110" rx="6.5" ry="9" fill="#331A00" />
+                                <!-- Eye Catchlights -->
+                                <circle cx="78" cy="107" r="2.5" fill="#FFFFFF" />
+                                <circle cx="118" cy="107" r="2.5" fill="#FFFFFF" />
+                                <circle cx="82" cy="112" r="1.2" fill="#FFFFFF" />
+                                <circle cx="122" cy="112" r="1.2" fill="#FFFFFF" />
+
+                                <!-- Cute Smile -->
+                                <path d="M 93 125 Q 100 132 107 125" stroke="#B33939" stroke-width="2.5" stroke-linecap="round" fill="none" />
+
+                                <!-- Eyebrows -->
+                                <path d="M 72 98 Q 80 94 88 98" stroke="#8C4A19" stroke-width="2" stroke-linecap="round" fill="none" />
+                                <path d="M 112 98 Q 120 94 128 98" stroke="#8C4A19" stroke-width="2" stroke-linecap="round" fill="none" />
+
+                                <!-- Front Hair (NO BANGS - Parted smoothly to the sides, Light Brown) -->
+                                <!-- Top Hair Mass -->
+                                <path d="M 58 100 C 50 60, 80 40, 100 40 C 120 40, 150 60, 142 100 C 135 75, 120 50, 100 52 C 80 50, 65 75, 58 100 Z" fill="#C67D4A" />
+                                <!-- Left Swoop Parting -->
+                                <path d="M 100 52 C 80 55, 62 70, 56 102 C 64 90, 80 75, 100 70 Z" fill="#D88E5B" />
+                                <!-- Right Swoop Parting -->
+                                <path d="M 100 52 C 120 55, 138 70, 144 102 C 136 90, 120 75, 100 70 Z" fill="#D88E5B" />
+
+                                <!-- Cute Hair Pin / Accessory -->
+                                <path d="M 130 75 L 142 82 L 132 87 Z" fill="#FFD1DC" />
+                                <circle cx="135" cy="81" r="3.5" fill="#FF69B4" />
+                            </svg>
+                        </div>
+                        <!-- Active Badge -->
+                        <span class="absolute bottom-2 right-2 w-5 h-5 bg-emerald-400 border-2 border-white dark:border-slate-800 rounded-full flex items-center justify-center text-[10px] text-white font-bold" title="온라인">✓</span>
+                    </div>
+                    
+                    <!-- Text Info Header -->
+                    <div class="text-center sm:text-left flex-grow">
+                        <!-- Requirement element: h2 -->
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white flex items-center justify-center sm:justify-start gap-2.5">
+                            방서희
+                            <span class="text-xs font-bold px-3 py-1 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900/60 dark:text-purple-300 border border-purple-200 dark:border-purple-700">
+                                ✨ AI컴퓨터전자공학부
+                            </span>
+                        </h2>
+                        <!-- Requirement element: p -->
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mt-1.5 flex items-center justify-center sm:justify-start gap-2">
+                            <span><i class="fa-solid fa-graduation-cap text-purple-500"></i> 학번: <strong class="font-mono text-purple-700 dark:text-purple-300">22500323</strong></span>
+                            <span>•</span>
+                            <span class="text-slate-500 dark:text-slate-400">성장하는 개발자 🌱</span>
+                        </p>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex gap-2 mt-2 sm:mt-0">
+                        <button onclick="copyContactEmail()" class="px-4 py-2.5 text-xs sm:text-sm font-semibold rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white shadow-md shadow-purple-500/20 transition-all flex items-center gap-2">
+                            <i class="fa-regular fa-paper-plane"></i> 이메일 복사
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Intro Quote -->
+                <div class="border-t border-purple-100 dark:border-slate-700/60 pt-5">
+                    <!-- Requirement element: p -->
+                    <p class="text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+                        안녕하세요! 인공지능과 모던 웹 프로그래밍에 열정을 가지고 공부하고 있는 <strong>방서희</strong>입니다. 
+                        새로운 기술을 배우는 즐거움을 느끼며, 깔끔하고 편리한 서비스를 만드는 개발자가 되는 것이 목표입니다! 🚀
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Tab Navigation -->
+        <div class="flex border-b border-purple-100 dark:border-slate-800 mb-6 gap-2 sm:gap-6 text-sm font-medium overflow-x-auto">
+            <button onclick="switchTab('about')" id="tab-about" class="tab-btn active pb-3 px-2 flex items-center gap-2 whitespace-nowrap transition-all">
+                <i class="fa-solid fa-user text-purple-500"></i> 기본 정보
+            </button>
+            <button onclick="switchTab('goals')" id="tab-goals" class="tab-btn pb-3 px-2 text-slate-500 dark:text-slate-400 flex items-center gap-2 whitespace-nowrap transition-all">
+                <i class="fa-solid fa-bullseye text-pink-500"></i> 학기 목표
+            </button>
+            <button onclick="switchTab('hobbies')" id="tab-hobbies" class="tab-btn pb-3 px-2 text-slate-500 dark:text-slate-400 flex items-center gap-2 whitespace-nowrap transition-all">
+                <i class="fa-solid fa-heart text-amber-500"></i> 관심 분야 & 취미
+            </button>
+        </div>
+
+        <!-- Tab Content 1: About Section -->
+        <div id="content-about" class="tab-content grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Student Information Card -->
+            <div class="glass-card rounded-2xl p-6 border border-white/80 dark:border-slate-700/60 shadow-sm">
+                <!-- Requirement element: h3 -->
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-id-card text-purple-500"></i> 학생 상세 프로필
+                </h3>
+                
+                <!-- Requirement element: ul, li -->
+                <ul class="space-y-3.5 text-sm">
+                    <li class="flex justify-between py-2 border-b border-slate-100 dark:border-slate-700/40">
+                        <span class="text-slate-500 dark:text-slate-400">성명</span>
+                        <span class="font-bold text-slate-800 dark:text-slate-100">방서희 (Bang Seo-hee)</span>
+                    </li>
+                    <li class="flex justify-between py-2 border-b border-slate-100 dark:border-slate-700/40">
+                        <span class="text-slate-500 dark:text-slate-400">학번</span>
+                        <span class="font-mono font-semibold text-purple-600 dark:text-purple-300">22500323</span>
+                    </li>
+                    <li class="flex justify-between py-2 border-b border-slate-100 dark:border-slate-700/40">
+                        <span class="text-slate-500 dark:text-slate-400">소속 전공</span>
+                        <span class="font-medium text-slate-800 dark:text-slate-200">AI컴퓨터전자공학부</span>
+                    </li>
+                    <li class="flex justify-between py-2">
+                        <span class="text-slate-500 dark:text-slate-400">관심 핵심 기술</span>
+                        <span class="font-medium text-indigo-600 dark:text-indigo-400">AI, Front-End, Git</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Quick Summary & Motivation -->
+            <div class="glass-card rounded-2xl p-6 border border-white/80 dark:border-slate-700/60 shadow-sm flex flex-col justify-between">
+                <div>
+                    <!-- Requirement element: h3 -->
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-sparkles text-amber-500"></i> 나의 한 줄 다짐
+                    </h3>
+                    <!-- Requirement element: p -->
+                    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed bg-purple-50/50 dark:bg-slate-800/50 p-4 rounded-xl border border-purple-100 dark:border-slate-700">
+                        "매일 조금씩 성장하는 코드를 작성하며, 협업의 즐거움을 아는 엔지니어로서 첫걸음을 당당히 내딛겠습니다!"
+                    </p>
+                </div>
+                
+                <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700/40 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                    <span>최종 수정: 2026학년도 학기</span>
+                    <span class="text-purple-500 font-semibold">Status: Active Student ✨</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Tab Content 2: Semester Goals Section -->
+        <div id="content-goals" class="tab-content hidden space-y-4">
+            <div class="glass-card rounded-2xl p-6 border border-white/80 dark:border-slate-700/60 shadow-sm">
+                <!-- Requirement element: h3 -->
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-flag text-indigo-500"></i> 이번 학기에 배우고 싶은 것 (Semester Goals)
+                </h3>
+
+                <!-- Requirement element: ul, li -->
+                <ul class="space-y-4">
+                    <!-- Goal Item 1 -->
+                    <li class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-purple-100 dark:border-slate-700/80 shadow-xs">
+                        <div class="flex items-start gap-3">
+                            <div class="p-2.5 bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-300 rounded-lg shrink-0">
+                                <i class="fa-brands fa-github text-xl"></i>
+                            </div>
+                            <div class="flex-grow">
+                                <div class="flex justify-between items-center mb-1">
+                                    <h4 class="font-bold text-sm text-slate-800 dark:text-slate-100">깃허브(GitHub) 협업 및 버전 관리 완벽 익히기</h4>
+                                    <span class="text-xs font-semibold text-purple-600 dark:text-purple-400">목표 달성률 75%</span>
+                                </div>
+                                <!-- Requirement element: p -->
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mb-2">Branch 관리, Pull Request 리뷰, Git Flow 협업 방식 완벽 숙달하기</p>
+                                <!-- Progress Bar -->
+                                <div class="w-full bg-slate-100 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-purple-500 h-full rounded-full w-3/4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Goal Item 2 -->
+                    <li class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-purple-100 dark:border-slate-700/80 shadow-xs">
+                        <div class="flex items-start gap-3">
+                            <div class="p-2.5 bg-pink-100 dark:bg-pink-900/50 text-pink-600 dark:text-pink-300 rounded-lg shrink-0">
+                                <i class="fa-solid fa-code text-xl"></i>
+                            </div>
+                            <div class="flex-grow">
+                                <div class="flex justify-between items-center mb-1">
+                                    <h4 class="font-bold text-sm text-slate-800 dark:text-slate-100">HTML / CSS / JavaScript 인터랙티브 웹 응용</h4>
+                                    <span class="text-xs font-semibold text-pink-600 dark:text-pink-400">목표 달성률 85%</span>
+                                </div>
+                                <!-- Requirement element: p -->
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mb-2">반응형 UI 웹 디자인과 깔끔한 사용자 인터페이스 구성하기</p>
+                                <!-- Progress Bar -->
+                                <div class="w-full bg-slate-100 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-pink-500 h-full rounded-full w-5/6"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Goal Item 3 -->
+                    <li class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-purple-100 dark:border-slate-700/80 shadow-xs">
+                        <div class="flex items-start gap-3">
+                            <div class="p-2.5 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 rounded-lg shrink-0">
+                                <i class="fa-solid fa-robot text-xl"></i>
+                            </div>
+                            <div class="flex-grow">
+                                <div class="flex justify-between items-center mb-1">
+                                    <h4 class="font-bold text-sm text-slate-800 dark:text-slate-100">AI 전공 연동 프로젝트 제작</h4>
+                                    <span class="text-xs font-semibold text-indigo-600 dark:text-indigo-400">목표 달성률 60%</span>
+                                </div>
+                                <!-- Requirement element: p -->
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mb-2">인공지능 모델 API와 웹 프론트엔드를 결합한 서비스 구축해보기</p>
+                                <!-- Progress Bar -->
+                                <div class="w-full bg-slate-100 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-indigo-500 h-full rounded-full w-3/5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tab Content 3: Hobbies & Interests Section -->
+        <div id="content-hobbies" class="tab-content hidden space-y-4">
+            <div class="glass-card rounded-2xl p-6 border border-white/80 dark:border-slate-700/60 shadow-sm">
+                <!-- Requirement element: h3 -->
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-heart text-pink-500"></i> 관심 분야 & 즐겨찾는 취미
+                </h3>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
+                    <div class="p-4 bg-white dark:bg-slate-800 rounded-2xl border border-purple-100 dark:border-slate-700 flex flex-col items-center text-center hover:scale-105 transition-all cursor-default">
+                        <span class="text-3xl mb-2">🤖</span>
+                        <span class="font-bold text-xs sm:text-sm text-slate-800 dark:text-slate-200">AI 기술 탐구</span>
+                        <span class="text-[11px] text-slate-400 mt-0.5">인공지능 트렌드</span>
+                    </div>
+
+                    <div class="p-4 bg-white dark:bg-slate-800 rounded-2xl border border-purple-100 dark:border-slate-700 flex flex-col items-center text-center hover:scale-105 transition-all cursor-default">
+                        <span class="text-3xl mb-2">💻</span>
+                        <span class="font-bold text-xs sm:text-sm text-slate-800 dark:text-slate-200">코딩 & 웹 개발</span>
+                        <span class="text-[11px] text-slate-400 mt-0.5">UI/UX 구현</span>
+                    </div>
+
+                    <div class="p-4 bg-white dark:bg-slate-800 rounded-2xl border border-purple-100 dark:border-slate-700 flex flex-col items-center text-center hover:scale-105 transition-all cursor-default">
+                        <span class="text-3xl mb-2">🎧</span>
+                        <span class="font-bold text-xs sm:text-sm text-slate-800 dark:text-slate-200">음악 감상</span>
+                        <span class="text-[11px] text-slate-400 mt-0.5">코딩할 때 필수</span>
+                    </div>
+
+                    <div class="p-4 bg-white dark:bg-slate-800 rounded-2xl border border-purple-100 dark:border-slate-700 flex flex-col items-center text-center hover:scale-105 transition-all cursor-default">
+                        <span class="text-3xl mb-2">✈️</span>
+                        <span class="font-bold text-xs sm:text-sm text-slate-800 dark:text-slate-200">여행</span>
+                        <span class="text-[11px] text-slate-400 mt-0.5">새로운 장소 방문</span>
+                    </div>
+
+                    <div class="p-4 bg-white dark:bg-slate-800 rounded-2xl border border-purple-100 dark:border-slate-700 flex flex-col items-center text-center hover:scale-105 transition-all cursor-default">
+                        <span class="text-3xl mb-2">☕</span>
+                        <span class="font-bold text-xs sm:text-sm text-slate-800 dark:text-slate-200">카페 탐방</span>
+                        <span class="text-[11px] text-slate-400 mt-0.5">분위기 좋은 카페</span>
+                    </div>
+
+                    <div class="p-4 bg-white dark:bg-slate-800 rounded-2xl border border-purple-100 dark:border-slate-700 flex flex-col items-center text-center hover:scale-105 transition-all cursor-default">
+                        <span class="text-3xl mb-2">📚</span>
+                        <span class="font-bold text-xs sm:text-sm text-slate-800 dark:text-slate-200">독서</span>
+                        <span class="text-[11px] text-slate-400 mt-0.5">생각 정리하기</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Toast Notification Popup -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-slate-900 text-white dark:bg-white dark:text-slate-900 px-5 py-3 rounded-2xl shadow-xl transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-2 z-50 text-sm font-medium">
+        <i class="fa-solid fa-circle-check text-emerald-400 dark:text-emerald-600"></i>
+        <span id="toast-msg">이메일 주소가 복사되었습니다!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-purple-100 dark:border-slate-800 py-6 bg-white/50 dark:bg-slate-900/50 backdrop-blur-md">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <!-- Requirement element: p -->
+            <p class="text-xs text-slate-500 dark:text-slate-400">
+                &copy; 2026 방서희 (Bang Seo-hee). All rights reserved. | AI컴퓨터전자공학부
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic Script -->
+    <script>
+        // Tab Switcher Function
+        function switchTab(tabName) {
+            const tabs = ['about', 'goals', 'hobbies'];
+            tabs.forEach(tab => {
+                const btn = document.getElementById(`tab-${tab}`);
+                const content = document.getElementById(`content-${tab}`);
+                
+                if (tab === tabName) {
+                    btn.classList.add('active');
+                    btn.classList.remove('text-slate-500', 'dark:text-slate-400');
+                    content.classList.remove('hidden');
+                } else {
+                    btn.classList.remove('active');
+                    btn.classList.add('text-slate-500', 'dark:text-slate-400');
+                    content.classList.add('hidden');
+                }
+            });
+        }
+
+        // Dark/Light Theme Switching Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            lightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            darkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            darkIcon.classList.toggle('hidden');
+            lightIcon.classList.toggle('hidden');
+
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+
+        // Copy contact info with Toast Notification
+        function copyContactEmail() {
+            const dummyEmail = "seohee22500323@example.com";
+            
+            // Clipboard fallback mechanism
+            const tempInput = document.createElement("input");
+            tempInput.value = dummyEmail;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            showToast("이메일 주소(seohee22500323@example.com)가 복사되었습니다!");
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            toastMsg.textContent = message;
+            
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Fun sparkle animation on character click
+        function triggerSparkleAnimation() {
+            showToast("✨ 방서희 학생의 프로필을 방문해 주셔서 감사합니다!");
+        }
+    </script>
 </body>
 </html>
